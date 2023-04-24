@@ -1,0 +1,22 @@
+div {
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    padding: 0.5rem;
+    margin: .2rem;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    font-size: .7rem;
+}
+
+span:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.selected {
+    background-color: #e72929;
+    color: white;
+}

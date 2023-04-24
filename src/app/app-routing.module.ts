@@ -11,7 +11,15 @@ const routes: Routes = [
   {
     path: '', // Para la ruta vacia, cargar el componente Home
     component: HomeComponent
-  }
+  },
+  {
+    path: 'search/:searchTerm', // searchTerm es un parametro
+    component: HomeComponent
+  },
+  {
+    path: 'tag/:tag', // searchTerm es un parametro
+    component: HomeComponent
+  },
 ];
 
 @NgModule({

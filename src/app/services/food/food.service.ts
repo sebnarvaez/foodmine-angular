@@ -11,11 +11,31 @@ import { Food } from 'src/app/shared/models/Food';
 export class FoodService {
 
   constructor() { }
-  
+
+  getAllFoodsByTag(): { [id: string]: Food[] } {
+    let foods = this.getAll();
+    let foodsByTag: { [id: string]: Food[] } = {};
+
+    for (let food of foods) {
+      if (food.tags) {
+        for (let tag of food.tags) {
+          if (!foodsByTag[tag]) {
+            foodsByTag[tag] = [food];
+          } else {
+            foodsByTag[tag].push(food)
+          }
+        }
+      }
+    }
+
+    return foodsByTag;
+  }
+
+
   // Puede ser cualquier funcion, tener cualquier nombre
-  getAll() : Food[] {
+  getAll(): Food[] {
     return [
-            {
+      {
         id: 1,
         name: 'Pizza Pepperoni',
         cookTime: '10-20',
