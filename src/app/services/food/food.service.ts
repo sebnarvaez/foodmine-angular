@@ -12,17 +12,19 @@ export class FoodService {
 
   constructor() { }
 
-  getAllFoodsByTag(): { [id: string]: Food[] } {
+  getAllFoodsByTags(): { [id: string]: number[] } {
     let foods = this.getAll();
-    let foodsByTag: { [id: string]: Food[] } = {};
+    let foodsByTag: { [id: string]: number[] } = {};
 
-    for (let food of foods) {
+    for (let i = 0; i < foods.length; i++) {
+      let food = foods[i];
+
       if (food.tags) {
         for (let tag of food.tags) {
           if (!foodsByTag[tag]) {
-            foodsByTag[tag] = [food];
+            foodsByTag[tag] = [i];
           } else {
-            foodsByTag[tag].push(food)
+            foodsByTag[tag].push(i)
           }
         }
       }
@@ -31,6 +33,9 @@ export class FoodService {
     return foodsByTag;
   }
 
+  getFoodById(id: number): Food {
+    return this.getAll().find(food => food.id === id)!;
+  }
 
   // Puede ser cualquier funcion, tener cualquier nombre
   getAll(): Food[] {

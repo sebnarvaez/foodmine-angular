@@ -19,7 +19,13 @@ export class HomeComponent {
         this.foods = this.foodService.getAll().filter(food => food.name.toLowerCase().includes(params['searchTerm'].toLowerCase()))
       }
       else if (params["tag"]) {
-        this.foods = this.foodService.getAllFoodsByTag()[params["tag"]];
+        if (params["tag"] == "All") {
+          this.foods = this.foodService.getAll();
+        }
+        else {
+          let allFoods = this.foodService.getAll();
+          this.foods = this.foodService.getAllFoodsByTags()[params["tag"]].map(x => allFoods[x]);
+        }
       }
       else {
         this.foods = this.foodService.getAll();

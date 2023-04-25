@@ -1,5 +1,6 @@
 <div>
-    <span *ngFor="let tag of tags">
+    <a routerLink="/tag/{{tag}}" ngClass="{{activeTag === tag ? 'selected' : ''}}" *ngFor="let tag of tags"
+        (click)="filterByTag(tag)">
         {{tag}}
-    </span>
+    </a>
 </div>

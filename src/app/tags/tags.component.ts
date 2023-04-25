@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FoodService } from '../services/food/food.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tags',
@@ -8,10 +9,15 @@ import { FoodService } from '../services/food/food.service';
 })
 export class TagsComponent {
   tags: string[] = [];
+  activeTag: string = "All";
 
-  constructor(private foodService: FoodService) { }
+  constructor(private foodService: FoodService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.tags = Object.keys(this.foodService.getAllFoodsByTag())
+    this.tags = ["All"].concat(Object.keys(this.foodService.getAllFoodsByTags()));
+  }
+
+  filterByTag(tag: string) {
+    this.activeTag = tag;
   }
 }

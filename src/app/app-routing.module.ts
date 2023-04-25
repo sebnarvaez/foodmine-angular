@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { FoodPageComponent } from './food-page/food-page.component';
 
 // Una ruta es lo que viene despues del primer slash en una url.
 // Aqui se guardan los componentes que debe cargar Angular por defecto
@@ -20,6 +21,10 @@ const routes: Routes = [
     path: 'tag/:tag', // searchTerm es un parametro
     component: HomeComponent
   },
+  {
+    path: 'item/:id',
+    component: FoodPageComponent
+  }
 ];
 
 @NgModule({
