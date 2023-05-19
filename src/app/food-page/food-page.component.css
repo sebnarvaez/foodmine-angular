@@ -23,3 +23,18 @@ img {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+button {
+    height: 3rem;
+    border-radius: 10rem;
+    border: none;
+    color: white;
+    background-color: #e72929;
+    opacity: .7;
+    font-size: 1rem;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
